@@ -1,0 +1,12 @@
+1) Try to convert prototxt arch. into keras and retrain the model on the images of poses.
+2) Search for predefined keras model for hand poses and retrain on the images of poses.
+3) Make a hand pose model from scratch.(And ofcourse train on images of poses)
+
+------------
+Goal
+------------
+1) Make a csv dataset containing (X,Y,C) and save it respectively in their class folders.
+2) Make an MLP classifier to classify C.
+3) Check each image for inference.(If works properly, save the model)
+4) Now make an end to end app for a smooth inference.
+The img should pass through the HandPose model, then it extracts the KPs which shall pass through the MLP model, which shall finally yield the results.

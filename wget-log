@@ -1,0 +1,17 @@
+Will not apply HSTS. The HSTS database must be a regular and non-world-writable file.
+ERROR: could not open HSTS store at '/home/nikhil/.wget-hsts'. HSTS will be disabled.
+--2020-11-04 19:09:33--  http://posefs1.perception.cs.cmu.edu/OpenPose/models/hand/pose_iter_102000.caffemodel
+Resolving posefs1.perception.cs.cmu.edu (posefs1.perception.cs.cmu.edu)... 128.2.176.37
+Connecting to posefs1.perception.cs.cmu.edu (posefs1.perception.cs.cmu.edu)|128.2.176.37|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 147344024 (141M) [text/plain]
+Saving to: ‘hand/pose_iter_102000.caffemodel’
+
+pose_iter_102000.caffemodel     2%[>                                                 ]   3.64M  42.3KB/s    eta 52m 12spose_iter_102000.caffemodel     2%[>                                                 ]   3.65M   195 B/s    eta 14h 18mpose_iter_102000.caffemodel     3%[>                                                 ]   4.27M   691 B/s    eta 14h 18mpose_iter_102000.caffemodel     3%[>                                                 ]   4.28M   684 B/s    eta 14h 18mpose_iter_102000.caffemodel     3%[>                                                 ]   4.29M   690 B/s    in 22m 54s 
+
+2020-11-04 19:32:29 (3.19 KB/s) - Connection closed at byte 4495949. Retrying.
+
+--2020-11-04 19:32:30--  (try: 2)  http://posefs1.perception.cs.cmu.edu/OpenPose/models/hand/pose_iter_102000.caffemodel
+Connecting to posefs1.perception.cs.cmu.edu (posefs1.perception.cs.cmu.edu)|128.2.176.37|:80... failed: No route to host.
+Resolving posefs1.perception.cs.cmu.edu (posefs1.perception.cs.cmu.edu)... failed: Temporary failure in name resolution.
+wget: unable to resolve host address ‘posefs1.perception.cs.cmu.edu’
