@@ -41,13 +41,14 @@ for i in range(nPoints):
 
     if prob > threshold :
         cv2.circle(frameCopy, (int(point[0]), int(point[1])), 8, (0, 255, 255), thickness=-1, lineType=cv2.FILLED)
-        cv2.putText(frameCopy, "{}".format(i), (int(point[0]), int(point[1])), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2, lineType=cv2.LINE_AA)
+        cv2.putText(frameCopy, "({},{})".format(int(point[0]), int(point[1])), (int(point[0]), int(point[1])), cv2.FONT_HERSHEY_SIMPLEX, 0.3, (0, 0, 255), 1, lineType=cv2.LINE_AA)
 
         # Add the point to the list if the probability is greater than the threshold
         points.append((int(point[0]), int(point[1])))
         print('Location of point {}:{}'.format(i,points[i]))
-    else :
-        points.append(None)
+    # else :
+    #     points.append(None)
+
 
 # Draw Skeleton
 for pair in POSE_PAIRS:
@@ -59,7 +60,21 @@ for pair in POSE_PAIRS:
         cv2.circle(frame, points[partA], 8, (0, 0, 255), thickness=-1, lineType=cv2.FILLED)
         cv2.circle(frame, points[partB], 8, (0, 0, 255), thickness=-1, lineType=cv2.FILLED)
 
+# Rect_height = (ymax-ymin)
+# Rect_width = (xmax - xmin)
 
+points = np.asarray(points)
+xmin=points[:,0].min()
+xmax=points[:,0].max()
+ymin=points[:,1].min()
+ymax=points[:,1].max()
+
+print('xmin,ymin : ({},{})'.format(xmin,ymin))
+print('xmax,ymax : ({},{})'.format(xmax,ymax))
+
+
+rect=cv2.rectangle(frameCopy, (xmin, ymin),(xmax,ymax),(0,0,255),2)
+cv2.imshow("Rectangle",rect)
 cv2.imshow('Output-Keypoints', frameCopy)
 cv2.imshow('Output-Skeleton', frame)
 
