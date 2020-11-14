@@ -63,18 +63,18 @@ for pair in POSE_PAIRS:
 # Rect_height = (ymax-ymin)
 # Rect_width = (xmax - xmin)
 
-points = np.asarray(points)
-xmin=points[:,0].min()
-xmax=points[:,0].max()
-ymin=points[:,1].min()
-ymax=points[:,1].max()
+# points = np.asarray(points)
+# xmin=points[:,0].min()
+# xmax=points[:,0].max()
+# ymin=points[:,1].min()
+# ymax=points[:,1].max()
 
-print('xmin,ymin : ({},{})'.format(xmin,ymin))
-print('xmax,ymax : ({},{})'.format(xmax,ymax))
+# print('xmin,ymin : ({},{})'.format(xmin,ymin))
+# print('xmax,ymax : ({},{})'.format(xmax,ymax))
 
 
-rect=cv2.rectangle(frameCopy, (xmin, ymin),(xmax,ymax),(0,0,255),2)
-cv2.imshow("Rectangle",rect)
+# rect=cv2.rectangle(frameCopy, (xmin, ymin),(xmax,ymax),(0,0,255),2)
+# cv2.imshow("Rectangle",rect)
 cv2.imshow('Output-Keypoints', frameCopy)
 cv2.imshow('Output-Skeleton', frame)
 
