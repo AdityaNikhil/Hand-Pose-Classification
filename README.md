@@ -27,8 +27,12 @@ Below, run only the files which are asked to. To see the results.<br>
 3) **handPoseCamera.py** -- Run this file to see how the pre-trained caffe model does inference using camera in real time. <br>
 4) **Extract_KPts.ipynb** -- Extracts the keypoints from input image.<br>
 5) **Train_MLP_Classifier.ipynb** -- Training a neural net to classify input imgs based on keypoints. <br>
-6) **Inference.ipynb** -- Run this file to see the inference on a given img for classification.<br><br>
-`**NOTE** - Currently this repo is trained only on 👍 👎 hand poses. More poses and user interactions will be added soon to make this more fun. `
+6) **inference.py** -- Run this file to see the inference on a given img or video for classification.<br>
+        For images,<br>
+            `python inference.py -i image.jpg` <br>
+        For videos,<br>
+            `python inference.py -i demo.mp4` <br>         
+`**NOTE** - Currently this repo is trained only on 👍 👎 hand poses. More poses and user interactions will be added soon to make it more fun. `
 
 ## TODOs
         1) Make a cmd argument parser to parse the following arguments,
