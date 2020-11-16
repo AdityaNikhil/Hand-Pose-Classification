@@ -4,7 +4,7 @@ import numpy as np
 from tensorflow.keras.models import load_model
 import nbimporter 
 from Extract_Kpts import extract_kpts
-# import matplotlib.pyplot as plt
+import cv2
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--input", required=True,
@@ -28,6 +28,7 @@ path = args['input']
 
 if(path.endswith('.jpg') or path.endswith('.png') or path.endswith('jpeg')):
 
+	img = cv2.imread(path)
 
 	points = extract_kpts.inference_img(protoFile,weightsFile,path)
 
@@ -38,8 +39,14 @@ if(path.endswith('.jpg') or path.endswith('.png') or path.endswith('jpeg')):
 	a = df[['X','Y']].to_numpy().reshape(-1, 44)
 	       
 	df1 = pd.DataFrame(a)
+	label = 'The predicted value is : {}'.format(np.argmax(model_1.predict(df1),axis=1)[0])
 
-	print('The predicted value is : ',np.argmax(model_1.predict(df1),axis=1)[0])
+	img = cv2.putText(img, label, (0,30),
+			cv2.FONT_HERSHEY_SIMPLEX, 1.3, (0,255,0), 3)
+
+	cv2.imshow('image',img)
+	cv2.waitKey(0)
+
 
 elif(path.endswith('.mp4')):	
 
