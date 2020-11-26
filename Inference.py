@@ -3,8 +3,9 @@ import pandas as pd
 import numpy as np
 from tensorflow.keras.models import load_model
 import nbimporter 
-from Extract_Kpts import extract_kpts
+from Utils.Extract_Kpts import extract_kpts
 import cv2
+import os
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--input", required=True,
@@ -18,6 +19,8 @@ ap.add_argument("-p", "--proto", type=str,
 ap.add_argument("-m", "--model", type=str,
 	default=r"D:\Project_Ideas\TeachableMachine_Local\handPose\hand\Kpts_model.h5",
 	help="path to trained hand classifier model")
+ap.add_argument("-o", "--output_dir", type=str,
+	help="path to save outputs")
 
 
 args = vars(ap.parse_args())
@@ -32,8 +35,6 @@ if(path.endswith('.jpg') or path.endswith('.png') or path.endswith('jpeg')):
 
 	points = extract_kpts.inference_img(protoFile,weightsFile,path)
 
-
-
 	points = pd.DataFrame(points, columns=['X','Y'])
 	df = pd.DataFrame(points)
 	a = df[['X','Y']].to_numpy().reshape(-1, 44)
@@ -44,10 +45,16 @@ if(path.endswith('.jpg') or path.endswith('.png') or path.endswith('jpeg')):
 	img = cv2.putText(img, label, (0,30),
 			cv2.FONT_HERSHEY_SIMPLEX, 1.3, (0,255,0), 3)
 
+	# Output path
+	dir = os.path.join(args['output_dir']+'Output_img.jpg')
+	cv2.imwrite(dir, img)
+
 	cv2.imshow('image',img)
 	cv2.waitKey(0)
 
 
 elif(path.endswith('.mp4')):	
 
-	extract_kpts.inference_vid(path,protoFile,weightsFile,path,model_1)
+	extract_kpts.inference_vid(args,path,protoFile,weightsFile,path,model_1)
+
+
