@@ -29,9 +29,9 @@ Below, run only the files which are asked to. To see the results.<br>
 5) **Train_MLP_Classifier.ipynb** -- Training a neural net to classify input imgs based on keypoints. <br>
 6) **inference.py** -- Run this file to see the inference on a given img or video for classification.<br>
         For images,<br>
-            `python inference.py -i image.jpg` <br>
+            `python inference.py -i Inputs/hand.jpg` <br>
         For videos,<br>
-            `python inference.py -i demo.mp4` <br>         
+            `python inference.py -i Inputs/demo.mp4` <br>         
 `**NOTE** - Currently this repo is trained only on 👍 👎 hand poses. More poses and user interactions will be added soon to make it more fun. `
 
 ## TODOs
