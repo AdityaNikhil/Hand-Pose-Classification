@@ -5,7 +5,7 @@ The poses are trained using a hand pose model whose keypoints are then extracted
 Hand pose model : https://www.kaggle.com/changethetuneman/openpose-model
 
 ## Architecture of the model
-<img src="https://github.com/AdityaNikhil/Hand-Pose-Classification/blob/master/Model_arch.jpg" width=800 /> ![]()
+<img src="https://github.com/AdityaNikhil/Hand-Pose-Classification/blob/master/assets/Model_arch.jpg" width=800 /> ![]()
 
 As you can see from the above img,<br>
     1) The pre-trained caffe model takes a hand image as input. <br>
@@ -43,4 +43,4 @@ Below, run only the files which are asked to. To see the results.<br>
         3) Make an interface using streamlit. (checkout below image)
         4) Real-time training in streamlit just like teacchable machine using cloud GPUs.
         
-<img src="https://github.com/AdityaNikhil/Hand-Pose-Classification/blob/master/streamlit_inference.jpg" width=800 /> ![]()      
+<img src="https://github.com/AdityaNikhil/Hand-Pose-Classification/blob/master/assets/streamlit_inference.jpg" width=800 /> ![]()      
