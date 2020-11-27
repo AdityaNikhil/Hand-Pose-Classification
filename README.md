@@ -42,5 +42,7 @@ Below, run only the files which are asked to. To see the results.<br>
         2) Train on more poses.
         3) Make an interface using streamlit. (checkout below image)
         4) Real-time training in streamlit just like teacchable machine using cloud GPUs.
-        
+
 <img src="https://github.com/AdityaNikhil/Hand-Pose-Classification/blob/master/assets/streamlit_inference.jpg" width=800 /> ![]()      
+
+
