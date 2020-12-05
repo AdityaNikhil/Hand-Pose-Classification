@@ -9,30 +9,35 @@ import os
 from PIL import Image
 
 
-model_1 = load_model(r"D:\Project_Ideas\TeachableMachine_Local\handPose\hand\Kpts_model.h5")
-protoFile = r"D:\Project_Ideas\TeachableMachine_Local\handPose\hand\pose_deploy.prototxt"
-weightsFile = r"D:\Project_Ideas\TeachableMachine_Local\handPose\hand\pose_iter_102000.caffemodel"
-path = r"D:\PY_SCRIPTS\hand.jpg"
+model_1 = load_model("./hand/Kpts_model.h5")
+protoFile = "./hand/pose_deploy.prototxt"
+weightsFile = "./hand/pose_iter_102000.caffemodel"
 
 '''
 # Hand Pose Classification
 
-### Checkout the images demo below,
+### Try the app by uploading an image file from the left.
 '''
 st.write('1) Upload an image of 👍 or 👎.')
 st.write('2) The image will be processed and output will be displayed below. ')
 st.set_option('deprecation.showfileUploaderEncoding', False)
-uploaded_file = st.file_uploader("Choose an image...", type=None)
+
+st.sidebar.header('User Input Features')
+
+# st.sidebar.markdown("""
+# [Example CSV input file](https://raw.githubusercontent.com/dataprofessor/data/master/penguins_example.csv)
+# """)
+uploaded_file = st.sidebar.file_uploader("Choose an image...", type=None)
 if uploaded_file is not None:
 
 	image = Image.open(uploaded_file)
-	st.image(image, caption='Uploaded Image.', use_column_width=True)
+	st.image(image, caption='Uploaded Image.', use_column_width=False, width=500)
 
 	st.write("### Working on it.....")
 
-	img = plt.imread(path)
+	img = plt.imread(uploaded_file)
 
-	points = extract_kpts.inference_img(protoFile,weightsFile,path)
+	points = extract_kpts.inference_img(protoFile,weightsFile,uploaded_file)
 
 	points = pd.DataFrame(points, columns=['X','Y'])
 	df = pd.DataFrame(points)
